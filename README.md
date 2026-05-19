@@ -148,4 +148,4 @@ Include license info here (e.g., MIT) and a short contact line or email for demo
 
 ---
 
-If you want, I can also add `.env.example` and a short `CONTRIBUTING.md`, then commit and push them. Tell me which to add.
+<!-- Removed: prompt to add .env.example/CONTRIBUTING.md -->
