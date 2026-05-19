@@ -1,0 +1,37 @@
+=== RECIPE ===
+TITLE: ROAST CHICKEN WITH HERBS
+SECTION: POULTRY
+ORDER_IN_SECTION: 502
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS: SABBATH
+PRIMARY_INGREDIENT: Chicken
+METHODS: ROASTED
+YIELD_TEXT: 4–6 servings
+SERVINGS: 6
+
+=== HEADNOTE ===
+Golden roasted chicken with crispy skin and juicy meat. The quintessential Friday night dinner centerpiece.
+
+=== INGREDIENTS ===
+1. 1 whole chicken (about 1.5 kg)
+2. 3 tbsp olive oil
+3. 1 tsp salt
+4. 1/2 tsp black pepper
+5. 1 tsp paprika
+6. 4 cloves garlic, minced
+7. 1 lemon, quartered
+8. 4 sprigs fresh thyme
+9. 2 sprigs fresh rosemary
+10. 1 onion, quartered
+
+=== STEPS ===
+1. Remove chicken from refrigerator 30 minutes before cooking; pat dry with paper towels.
+2. Mix olive oil, salt, pepper, paprika, and garlic; rub all over chicken and under skin.
+3. Stuff cavity with lemon, thyme, rosemary, and onion.
+4. Place breast-side up in roasting pan; roast at 200°C/400°F for 1 hour 15 minutes until skin is golden and juices run clear.
+5. Let rest 10 minutes before carving; serve with pan juices.
+
+=== INDEX_TERMS ===
+Roast Chicken; Chicken; Poultry; Roasted; Shabbat; Meat
+=== END ===

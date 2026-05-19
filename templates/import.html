@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex align-items-start justify-content-between mb-3">
+  <div>
+    <h1 class="h3 mb-1">Import Recipe</h1>
+    <div class="text-muted">Upload a file or paste text → preview → import.</div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <!-- LEFT: main import panel -->
+  <div class="col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <strong>Step 1: Provide recipe text</strong>
+        <span class="small text-muted">Preview first</span>
+      </div>
+
+      <div class="card-body">
+        <!-- mini step chips -->
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge text-bg-secondary">1. Upload / Paste</span>
+          <span class="badge text-bg-secondary">2. Preview</span>
+          <span class="badge text-bg-secondary">3. Import</span>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" action="{{ url_for('import_recipe') }}">
+          <!-- Dropzone -->
+          <div class="import-dropzone mb-3" id="dropzone">
+            <div class="import-dropzone-inner">
+              <div class="fw-bold mb-1">Drop a .txt file here</div>
+              <div class="text-muted small mb-2">UTF-8 text recommended</div>
+
+              <input
+                id="recipeFile"
+                type="file"
+                class="d-none"
+                name="recipe_file"
+                accept=".txt"
+              />
+
+              <label for="recipeFile" class="btn btn-primary btn-sm">
+                Choose file
+              </label>
+
+              <div class="small text-muted mt-2" id="fileHint">No file selected</div>
+            </div>
+          </div>
+
+          <!-- OR divider -->
+          <div class="d-flex align-items-center gap-3 my-3">
+            <div class="flex-grow-1" style="height:1px;background:rgba(15,23,42,0.10);"></div>
+            <div class="small text-muted">or</div>
+            <div class="flex-grow-1" style="height:1px;background:rgba(15,23,42,0.10);"></div>
+          </div>
+
+          <!-- Paste text (collapsible to reduce clutter) -->
+          <button
+            class="btn btn-outline-secondary btn-sm mb-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#pasteBox"
+            aria-expanded="false"
+            aria-controls="pasteBox"
+          >
+            Paste recipe text instead
+          </button>
+
+          <div class="collapse" id="pasteBox">
+            <div class="mb-3">
+              <label class="form-label">Paste recipe</label>
+              <textarea
+                class="form-control"
+                name="recipe_text"
+                rows="14"
+                placeholder="Paste the structured recipe text here..."
+              ></textarea>
+              <div class="small text-muted mt-1">
+                Tip: if you upload a file, you can keep this empty.
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary">
+              <i class="bi bi-eye"></i> Preview
+            </button>
+
+            <button type="reset" class="btn btn-outline-secondary" id="resetBtn">
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: helper panels -->
+  <div class="col-lg-5">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">
+        <strong>Format cheat sheet</strong>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="importHelp">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="h-structure">
+              <button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#c-structure"
+                      aria-expanded="false" aria-controls="c-structure">
+                Expected structure
+              </button>
+            </h2>
+            <div id="c-structure" class="accordion-collapse collapse" aria-labelledby="h-structure" data-bs-parent="#importHelp">
+              <div class="accordion-body">
+<pre class="small mb-0">=== RECIPE ===
+TITLE: ...
+SECTION: ...
+ORDER_IN_SECTION: ...
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: ...
+METHODS: BAKED
+YIELD_TEXT: ...
+SERVINGS: ...
+
+=== HEADNOTE ===
+...
+
+=== INGREDIENTS ===
+1. ...
+2. ...
+
+=== STEPS ===
+1. ...
+2. ...
+
+=== INDEX_TERMS ===
+Term1; Term2; ...
+=== END ===</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="h-tips">
+              <button class="accordion-button collapsed" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#c-tips"
+                      aria-expanded="false" aria-controls="c-tips">
+                Common issues
+              </button>
+            </h2>
+            <div id="c-tips" class="accordion-collapse collapse" aria-labelledby="h-tips" data-bs-parent="#importHelp">
+              <div class="accordion-body">
+                <ul class="mb-0">
+                  <li>Use <strong>UTF-8</strong> (avoid weird characters).</li>
+                  <li>Keep section headers exactly: <code>=== INGREDIENTS ===</code>, <code>=== STEPS ===</code>.</li>
+                  <li>Numbered lines help parsing: <code>1.</code>, <code>2.</code> …</li>
+                  <li>If preview looks wrong → fix text → preview again.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="small text-muted mt-3">
+          You can use either file upload or paste text (not both).
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-header"><strong>What happens next?</strong></div>
+      <div class="card-body">
+        <ol class="mb-0">
+          <li>Preview shows how the parser understood your recipe.</li>
+          <li>If it’s correct → confirm import.</li>
+          <li>The recipe is saved + indexed for search.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Local styling for this screen only (keeps the rest of the app clean) -->
+<style>
+  .import-dropzone{
+    border: 1px dashed rgba(15,23,42,0.22);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.85);
+    padding: 14px;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .12s ease;
+  }
+  .import-dropzone-inner{
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    background: rgba(76,139,245,0.04);
+  }
+  .import-dropzone.dragover{
+    border-color: rgba(76,139,245,0.70);
+    box-shadow: 0 0 0 3px rgba(76,139,245,0.18);
+    transform: translateY(-1px);
+  }
+</style>
+
+<script>
+  (function () {
+    const dz = document.getElementById('dropzone');
+    const fileInput = document.getElementById('recipeFile');
+    const hint = document.getElementById('fileHint');
+    const resetBtn = document.getElementById('resetBtn');
+
+    function setHint() {
+      const f = fileInput.files && fileInput.files[0];
+      hint.textContent = f ? `Selected: ${f.name}` : 'No file selected';
+    }
+
+    fileInput.addEventListener('change', setHint);
+
+    dz.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dz.classList.add('dragover');
+    });
+
+    dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+
+    dz.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dz.classList.remove('dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        setHint();
+      }
+    });
+
+    resetBtn?.addEventListener('click', () => {
+      setTimeout(() => {
+        // file input reset
+        fileInput.value = '';
+        setHint();
+      }, 0);
+    });
+
+    setHint();
+  })();
+</script>
+
+{% endblock %}

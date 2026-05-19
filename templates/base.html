@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Recipe Concordance</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- App CSS -->
+  <link href="{{ url_for('static', filename='style.css') }}?v=2.0" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+</head>
+<body class="bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+      <i class="bi bi-egg-fried me-2"></i>Recipe Concordance
+    </a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="nav" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('import_recipe') }}"><i class="bi bi-upload"></i> Import</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('list_recipes') }}"><i class="bi bi-list"></i> Recipes</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('kwic') }}"><i class="bi bi-search"></i> KWIC</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('groups') }}"><i class="bi bi-collection"></i> Groups</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('expressions') }}"><i class="bi bi-quote"></i> Expressions</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('word_index') }}"><i class="bi bi-book"></i> Index</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('mining') }}"><i class="bi bi-diagram-2"></i> Data Mining</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('stats') }}"><i class="bi bi-bar-chart"></i> Stats</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  <div class="container mt-3">
+    {% for cat, msg in messages %}
+      <div class="alert alert-{{ 'warning' if cat=='warning' else ('success' if cat=='success' else 'info') }} shadow-sm">{{ msg }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endwith %}
+
+<main class="container my-4">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="border-top py-4">
+  <div class="container small text-muted d-flex justify-content-between">
+    <span>Recipe Concordance - Supports Recipes from “The International Jewish Cook Book” (Project Gutenberg)</span>
+  </div>
+</footer>
+
+<!-- Bootstrap JS + app.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

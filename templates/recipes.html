@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-white rounded-3 shadow-sm p-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h4 class="mb-0">All Recipes</h4>
+  </div>
+  {% if recipes %}
+  <div class="table-responsive">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Title</th>
+          <th>Section</th>
+          <th>Kashrut</th>
+          <th>Methods</th>
+          <th>Primary Ingredient</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in recipes %}
+          <tr>
+            <td><a class="text-decoration-none" href="{{ url_for('recipe_detail', recipe_id=r.recipe_id) }}">{{ r.title }}</a></td>
+            <td><span class="badge text-bg-secondary">{{ r.section }}</span></td>
+            <td>{{ r.kashrut_type }}</td>
+            <td>
+              {% if r.methods %}
+                {% for m in r.methods.split(',') %}
+                  <span class="badge rounded-pill text-bg-light border">{{ m }}</span>
+                {% endfor %}
+              {% else %}
+                <span class="text-muted">—</span>
+              {% endif %}
+            </td>
+            <td>{{ r.primary_ingredient or '—' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p class="text-muted mb-0">No recipes.</p>
+  {% endif %}
+</section>
+{% endblock %}

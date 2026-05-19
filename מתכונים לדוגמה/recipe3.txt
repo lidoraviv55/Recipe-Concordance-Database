@@ -1,0 +1,34 @@
+=== RECIPE ===
+TITLE: DEVILED EGGS WITH HOT SAUCE
+SECTION: APPETIZERS
+ORDER_IN_SECTION: 162
+VARIANT_NO:
+KASHRUT_TYPE: DAIRY
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Eggs
+METHODS: BOILED
+YIELD_TEXT: 12 halves
+SERVINGS: 6
+
+=== HEADNOTE ===
+Classic deviled eggs finished with a quick stovetop milk sauce.
+
+=== INGREDIENTS ===
+1. 6 eggs
+2. 1 tbsp butter
+3. 1 tbsp flour
+4. 1 cup milk
+5. 1 tsp prepared mustard
+6. 1 tbsp chopped parsley
+7. pinch cayenne
+8. salt, to taste
+9. black pepper, to taste
+
+=== STEPS ===
+1. Hard-boil eggs (10 minutes), chill, peel, and halve lengthwise. Mash yolks with mustard, a pinch of salt and pepper; refill whites.
+2. For the sauce: melt butter, whisk in flour; cook 1 minute. Whisk in milk and cook until thick. Season with salt, pepper, cayenne; stir in parsley.
+3. Spoon hot sauce over the filled eggs and serve at once.
+
+=== INDEX_TERMS ===
+Deviled Eggs; Eggs; Appetizers; Sauces; Dairy
+=== END ===

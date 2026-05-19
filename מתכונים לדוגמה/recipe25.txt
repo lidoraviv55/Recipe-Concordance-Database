@@ -1,0 +1,31 @@
+=== RECIPE ===
+TITLE: HOMEMADE LOKSHEN (EGG NOODLES)
+SECTION: MEHLSPEISE (FLOUR FOODS)
+ORDER_IN_SECTION: 802
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Flour
+METHODS: BOILED
+YIELD_TEXT: 4 servings
+SERVINGS: 4
+
+=== HEADNOTE ===
+Fresh egg noodles made from scratch. Use in soups, kugels, or tossed with butter and poppy seeds.
+
+=== INGREDIENTS ===
+1. 2 cups all-purpose flour
+2. 3 eggs
+3. 1/2 tsp salt
+4. 1 tbsp water (if needed)
+
+=== STEPS ===
+1. Mound flour on clean surface; make well in center; add eggs and salt.
+2. Beat eggs with fork, gradually incorporating flour from sides until rough dough forms; add water if too dry.
+3. Knead 8–10 minutes until smooth and elastic; cover and rest 30 minutes.
+4. Divide dough in half; roll each piece paper-thin; let dry 15 minutes; roll up loosely and slice into strips.
+5. Shake noodles loose; cook in boiling salted water 3–4 minutes until tender; drain and serve immediately.
+
+=== INDEX_TERMS ===
+Lokshen; Noodles; Egg Noodles; Pasta; Parve; Mehlspeise
+=== END ===

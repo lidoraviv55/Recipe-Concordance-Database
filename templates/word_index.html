@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white rounded-3 shadow-sm p-3">
+  <h4 class="mb-3">Word Index</h4>
+  <p class="text-muted">
+    Build an index of words from token positions. Choose a recipe, a group, or a scope (TITLE/INGREDIENT/STEP).
+    Click <em>Show context</em> next to a term to see all occurrences: KWIC window (±N tokens),
+    the full segment line, and previous/next line (for INGREDIENT/STEP).
+  </p>
+
+  <!-- Filters -->
+  <form method="post" class="row g-2 mb-3" id="wi-filter-form">
+    <div class="col-md-5">
+      <label class="form-label mb-1">Recipe</label>
+      <select name="recipe_id" class="form-select">
+        <option value="">All recipes</option>
+        {% for r in recipes %}
+          <option value="{{ r.recipe_id }}" {% if rid and rid|int==r.recipe_id %}selected{% endif %}>{{ r.title }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label mb-1">Word Group</label>
+      <select name="group_id" class="form-select">
+        <option value="">All words</option>
+        {% for g in groups %}
+          <option value="{{ g.group_id }}" {% if gid and gid|int==g.group_id %}selected{% endif %}>{{ g.group_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label mb-1">Scope</label>
+      <select name="scope" class="form-select">
+        <option value=""  {% if scope=='' %}selected{% endif %}>Any</option>
+        <option value="TITLE" {% if scope=='TITLE' %}selected{% endif %}>TITLE</option>
+        <option value="INGREDIENT" {% if scope=='INGREDIENT' %}selected{% endif %}>INGREDIENT</option>
+        <option value="STEP" {% if scope=='STEP' %}selected{% endif %}>STEP</option>
+      </select>
+    </div>
+    <div class="col-md-1 d-flex align-items-end">
+      <button class="btn btn-primary w-100"><i class="bi bi-search"></i></button>
+    </div>
+  </form>
+
+  <!-- Contexts container FIRST so it's always visible near top -->
+  <div id="contexts-container">
+    {% if contexts %}
+      {% include 'partials/contexts.html' %}
+    {% endif %}
+  </div>
+
+  <div class="row g-3">
+    <!-- Top terms (paginated) -->
+    <div class="col-lg-6">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-2">Top terms</h6>
+        {% if pager_terms.pages > 1 %}
+          <div class="btn-group btn-group-sm">
+            <form method="get" class="m-0 p-0">
+              <input type="hidden" name="recipe_id" value="{{ rid or '' }}">
+              <input type="hidden" name="group_id"  value="{{ gid or '' }}">
+              <input type="hidden" name="scope"     value="{{ scope or '' }}">
+              <input type="hidden" name="ppage"     value="{{ pager_positions.page }}">
+              <input type="hidden" name="tpage"     value="{{ pager_terms.page - 1 if pager_terms.page > 1 else 1 }}">
+              <button class="btn btn-outline-primary">&laquo; Prev</button>
+            </form>
+            <span class="mx-2 small text-muted">Page {{ pager_terms.page }} / {{ pager_terms.pages }}</span>
+            <form method="get" class="m-0 p-0">
+              <input type="hidden" name="recipe_id" value="{{ rid or '' }}">
+              <input type="hidden" name="group_id"  value="{{ gid or '' }}">
+              <input type="hidden" name="scope"     value="{{ scope or '' }}">
+              <input type="hidden" name="ppage"     value="{{ pager_positions.page }}">
+              <input type="hidden" name="tpage"     value="{{ pager_terms.page + 1 if pager_terms.page < pager_terms.pages else pager_terms.pages }}">
+              <button class="btn btn-outline-primary">Next &raquo;</button>
+            </form>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if agg %}
+        <ul class="list-group">
+          {% for a in agg %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span>{{ a.word }}</span>
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge text-bg-secondary">{{ a.freq }}</span>
+
+                <!-- AJAX Show context -->
+                <form method="post" class="m-0 p-0 js-context-form">
+                  <input type="hidden" name="sel_word" value="{{ a.word }}">
+                  <input type="hidden" name="recipe_id" value="{{ rid or '' }}">
+                  <input type="hidden" name="group_id"  value="{{ gid or '' }}">
+                  <input type="hidden" name="scope"     value="{{ scope or '' }}">
+                  <input type="hidden" name="ctx_window" value="{{ ctx_window or 5 }}">
+                  <button class="btn btn-sm btn-outline-primary js-show-context">Show context</button>
+                </form>
+
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="text-muted">No data for the current filters.</p>
+      {% endif %}
+    </div>
+
+    <!-- Sample positions (paginated) -->
+    <div class="col-lg-6">
+      <div class="d-flex justify-content-between align-items-center">
+        <h6 class="mb-2">Sample positions (first 50)</h6>
+        {% if pager_positions.pages > 1 %}
+          <div class="btn-group btn-group-sm">
+            <form method="get" class="m-0 p-0">
+              <input type="hidden" name="recipe_id" value="{{ rid or '' }}">
+              <input type="hidden" name="group_id"  value="{{ gid or '' }}">
+              <input type="hidden" name="scope"     value="{{ scope or '' }}">
+              <input type="hidden" name="tpage"     value="{{ pager_terms.page }}">
+              <input type="hidden" name="ppage"     value="{{ pager_positions.page - 1 if pager_positions.page > 1 else 1 }}">
+              <button class="btn btn-outline-primary">&laquo; Prev</button>
+            </form>
+            <span class="mx-2 small text-muted">Page {{ pager_positions.page }} / {{ pager_positions.pages }}</span>
+            <form method="get" class="m-0 p-0">
+              <input type="hidden" name="recipe_id" value="{{ rid or '' }}">
+              <input type="hidden" name="group_id"  value="{{ gid or '' }}">
+              <input type="hidden" name="scope"     value="{{ scope or '' }}">
+              <input type="hidden" name="tpage"     value="{{ pager_terms.page }}">
+              <input type="hidden" name="ppage"     value="{{ pager_positions.page + 1 if pager_positions.page < pager_positions.pages else pager_positions.pages }}">
+              <button class="btn btn-outline-primary">Next &raquo;</button>
+            </form>
+          </div>
+        {% endif %}
+      </div>
+
+      {% if detail %}
+        <div class="table-responsive">
+          <table class="table table-sm">
+            <thead class="table-light"><tr><th>Recipe</th><th>Where</th><th>Word</th><th>Order</th></tr></thead>
+            <tbody>
+              {% for d in detail %}
+                <tr>
+                  <td>{{ d.title }}</td>
+                  <td>{{ d.segment_type }} #{{ d.segment_index }}</td>
+                  <td>{{ d.word }}</td>
+                  <td>{{ d.word_order }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p class="text-muted">No sample positions.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

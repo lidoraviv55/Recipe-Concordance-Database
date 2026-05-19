@@ -1,0 +1,36 @@
+=== RECIPE ===
+TITLE: POTATO LATKES
+SECTION: VEGETABLES
+ORDER_IN_SECTION: 605
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS: HANUKKAH
+PRIMARY_INGREDIENT: Potatoes
+METHODS: FRIED
+YIELD_TEXT: about 20 latkes
+SERVINGS: 6
+
+=== HEADNOTE ===
+Crispy potato pancakes traditional for Hanukkah. Squeeze out as much liquid as possible for the crispiest results.
+
+=== INGREDIENTS ===
+1. 1 kg (2 lb) russet potatoes, peeled
+2. 1 medium onion
+3. 2 eggs, beaten
+4. 3 tbsp matzo meal or all-purpose flour
+5. 1 tsp salt
+6. 1/4 tsp black pepper
+7. vegetable oil for frying
+8. sour cream, for serving
+9. applesauce, for serving
+
+=== STEPS ===
+1. Grate potatoes and onion on large holes of box grater or in food processor; transfer to clean kitchen towel and squeeze out as much liquid as possible.
+2. Place potato mixture in large bowl; stir in eggs, matzo meal, salt, and pepper.
+3. Heat 1 cm (1/2 inch) oil in large skillet over medium-high heat until shimmering.
+4. Drop heaping tablespoons of mixture into oil; flatten slightly with spatula; fry 3–4 minutes per side until golden and crisp; drain on paper towels.
+5. Serve immediately with sour cream and applesauce; keep warm in low oven if making large batch.
+
+=== INDEX_TERMS ===
+Latkes; Potato Pancakes; Hanukkah; Fried; Parve; Vegetables
+=== END ===

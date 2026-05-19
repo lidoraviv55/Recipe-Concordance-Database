@@ -1,0 +1,38 @@
+=== RECIPE ===
+TITLE: STUFFED CABBAGE ROLLS
+SECTION: MEATS
+ORDER_IN_SECTION: 415
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Beef
+METHODS: STEWED
+YIELD_TEXT: 12 rolls
+SERVINGS: 6
+
+=== HEADNOTE ===
+Tender cabbage leaves wrapped around seasoned meat and rice, simmered in sweet and sour tomato sauce.
+
+=== INGREDIENTS ===
+1. 1 large head cabbage
+2. 500 g ground beef
+3. 1/2 cup uncooked rice
+4. 1 onion, grated
+5. 1 egg
+6. 1 tsp salt
+7. 1/4 tsp pepper
+8. 2 cups tomato sauce
+9. 1/4 cup brown sugar
+10. 3 tbsp lemon juice
+11. 1/2 cup raisins
+
+=== STEPS ===
+1. Core cabbage and place in large pot of boiling water; cook 5 minutes until outer leaves soften; carefully remove 12 large leaves; shave thick ribs flat.
+2. Mix beef, rice, onion, egg, salt, and pepper until well combined.
+3. Place 2–3 tbsp filling on each cabbage leaf; fold sides in and roll tightly; place seam-side down in Dutch oven.
+4. Combine tomato sauce, brown sugar, lemon juice, and raisins; pour over cabbage rolls.
+5. Cover and simmer over low heat for 2 hours, or bake at 160°C/325°F for 2 hours; baste occasionally with sauce.
+
+=== INDEX_TERMS ===
+Stuffed Cabbage; Holishkes; Beef; Cabbage; Meat; Stewed
+=== END ===

@@ -1,0 +1,35 @@
+=== RECIPE ===
+TITLE: MATZO BALL SOUP
+SECTION: SOUPS
+ORDER_IN_SECTION: 203
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS: PASSOVER
+PRIMARY_INGREDIENT: Matzo Meal
+METHODS: BOILED
+YIELD_TEXT: 8 servings
+SERVINGS: 8
+
+=== HEADNOTE ===
+Light and fluffy matzo balls in rich chicken broth. The secret to fluffy matzo balls is chilling the mixture and not over-handling.
+
+=== INGREDIENTS ===
+1. 4 eggs
+2. 1/4 cup chicken fat (schmaltz) or vegetable oil
+3. 1 cup matzo meal
+4. 1 tsp salt
+5. 1/4 tsp white pepper
+6. 2 tbsp fresh dill, chopped (optional)
+7. 1/4 cup seltzer water or chicken broth
+8. 8 cups chicken soup, homemade or prepared
+
+=== STEPS ===
+1. Beat eggs with schmaltz until blended; stir in matzo meal, salt, pepper, and dill if using; add seltzer and mix gently.
+2. Cover and refrigerate at least 30 minutes or up to overnight.
+3. Bring a large pot of salted water to boil; with wet hands, form mixture into balls about 3 cm (1 inch) diameter.
+4. Drop balls into boiling water; reduce heat to simmer, cover and cook 30–40 minutes without lifting lid.
+5. Heat chicken soup in separate pot; transfer matzo balls to soup bowls, ladle hot soup over them, and garnish with fresh dill.
+
+=== INDEX_TERMS ===
+Matzo Balls; Soup; Passover; Kneidlach; Chicken Soup; Meat
+=== END ===

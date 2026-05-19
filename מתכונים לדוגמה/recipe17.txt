@@ -1,0 +1,39 @@
+=== RECIPE ===
+TITLE: GEFILTE FISH
+SECTION: FISH
+ORDER_IN_SECTION: 305
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS: PASSOVER
+PRIMARY_INGREDIENT: Fish
+METHODS: BOILED
+YIELD_TEXT: 12 pieces
+SERVINGS: 12
+
+=== HEADNOTE ===
+Traditional poached fish dumplings served cold with horseradish. A labor of love, best made a day ahead.
+
+=== INGREDIENTS ===
+1. 1 kg mixed white fish fillets (carp, pike, whitefish)
+2. 2 medium onions, quartered
+3. 2 eggs
+4. 2 tbsp matzo meal
+5. 1 tbsp sugar
+6. 2 tsp salt
+7. 1/2 tsp white pepper
+8. 1/4 cup ice water
+9. fish bones and heads (for stock)
+10. 2 carrots, sliced
+11. 2 stalks celery
+12. prepared horseradish, for serving
+
+=== STEPS ===
+1. Make stock: simmer fish bones, 1 onion, carrots, celery, and 2 liters water for 30 minutes; strain and return to pot.
+2. Grind fish and remaining onion in food processor until smooth; add eggs, matzo meal, sugar, salt, pepper, and ice water; process until light.
+3. With wet hands, form mixture into oval patties about 8 cm (3 inches) long.
+4. Bring stock to gentle simmer; carefully lower fish patties into stock; cover and poach 1½ hours, basting occasionally.
+5. Remove fish to serving platter; top each with carrot slice; strain and reduce cooking liquid; pour over fish; refrigerate overnight; serve cold with horseradish.
+
+=== INDEX_TERMS ===
+Gefilte Fish; Fish; Passover; Shabbat; Poached; Parve
+=== END ===

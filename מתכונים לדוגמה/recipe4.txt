@@ -1,0 +1,33 @@
+=== RECIPE ===
+TITLE: BORSHT (PARVE)
+SECTION: SOUPS
+ORDER_IN_SECTION: 210
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Beets
+METHODS: BOILED
+YIELD_TEXT: About 2 liters
+SERVINGS: 6
+
+=== HEADNOTE ===
+Bright beet soup with a gentle sweet-and-sour balance; serve hot or chilled.
+
+=== INGREDIENTS ===
+1. 4 medium beets, peeled and grated (or cut in matchsticks)
+2. 1 medium onion, sliced
+3. 6 cups water
+4. 2 tbsp lemon juice (or to taste)
+5. 2 tbsp sugar (or to taste)
+6. 1 tsp salt, or to taste
+7. black pepper, to taste
+8. fresh dill, chopped (for serving, optional)
+
+=== STEPS ===
+1. Combine beets, onion, and water in a pot; bring to a simmer and cook until beets are tender (30–40 minutes).
+2. Season with lemon juice, sugar, salt, and pepper to a sweet–sour balance.
+3. Serve hot or chilled, with chopped dill if desired.
+
+=== INDEX_TERMS ===
+Borsht; Beet Soup; Soups; Parve
+=== END ===

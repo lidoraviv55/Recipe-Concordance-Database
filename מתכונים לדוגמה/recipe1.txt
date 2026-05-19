@@ -1,0 +1,34 @@
+=== RECIPE ===
+TITLE: SARDINE CANAPÉS
+SECTION: APPETIZERS
+ORDER_IN_SECTION: 101
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Sardines
+METHODS: BAKED
+YIELD_TEXT: 12 canapés
+SERVINGS: 6
+
+=== HEADNOTE ===
+A classic canapé spread of sardines brightened with lemon and parsley, served on crisp toast.
+
+=== INGREDIENTS ===
+1. 6 sardines (canned in oil), skinned and boned
+2. 2 tbsp lemon juice
+3. 1 tsp Worcestershire sauce
+4. 2 tbsp chopped parsley
+5. 4 tbsp olive oil
+6. 12 thin toast rounds (about 1/2 inch thick)
+7. 2 hard-boiled eggs, chopped (optional)
+8. salt, to taste
+9. black pepper, to taste
+
+=== STEPS ===
+1. In a bowl, mash sardines to a paste. Stir in lemon juice, Worcestershire, parsley, and 2 tbsp olive oil. Season with salt and pepper.
+2. Brush bread lightly with remaining olive oil and bake at 200°C/390°F until just golden (about 5 minutes), or toast.
+3. Spread sardine paste over each toast. If using, top with chopped egg and a pinch of parsley. Serve immediately.
+
+=== INDEX_TERMS ===
+Sardine Canapés; Canapés; Appetizers; Sardines; Toast
+=== END ===

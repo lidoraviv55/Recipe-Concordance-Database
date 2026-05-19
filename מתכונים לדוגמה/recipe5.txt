@@ -1,0 +1,36 @@
+=== RECIPE ===
+TITLE: GEFILLTE FISCH
+SECTION: FISH
+ORDER_IN_SECTION: 305
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Pike/Carp
+METHODS: BOILED
+YIELD_TEXT: 12 patties
+SERVINGS: 6
+
+=== HEADNOTE ===
+Poached fish quenelles in a lightly sweet stock with carrot rounds.
+
+=== INGREDIENTS ===
+1. 2 lb (900 g) pike or carp fillets, skin removed
+2. 2 medium onions, 1 grated and 1 sliced
+3. 2 eggs
+4. 1/2 cup matzo meal
+5. 1 1/2 tsp salt (divided)
+6. 1 tsp sugar (plus more to taste for stock)
+7. 1/4 tsp black pepper
+8. 2 carrots, sliced
+9. 6 cups water
+
+=== STEPS ===
+1. Grind fish with grated onion. Mix in eggs, matzo meal, 1 tsp salt, sugar, and pepper until cohesive.
+2. Form oval patties with wet hands.
+3. In a wide pot, place sliced onion, carrots, water, remaining 1/2 tsp salt, and a pinch of sugar; bring to a gentle boil.
+4. Lower patties into the simmering stock; cover and poach 45–60 minutes.
+5. Chill in the stock; serve cold with carrot slices.
+
+=== INDEX_TERMS ===
+Gefillte Fisch; Fish; Pike; Carp; Poached; Jewish Cuisine
+=== END ===

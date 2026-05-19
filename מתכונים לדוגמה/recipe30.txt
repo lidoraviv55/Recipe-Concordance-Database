@@ -1,0 +1,36 @@
+=== RECIPE ===
+TITLE: NEW YORK CHEESECAKE
+SECTION: PASTRY AND PIES
+ORDER_IN_SECTION: 920
+VARIANT_NO:
+KASHRUT_TYPE: DAIRY
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Cream Cheese
+METHODS: BAKED
+YIELD_TEXT: 9-inch cake
+SERVINGS: 12
+
+=== HEADNOTE ===
+Dense and creamy cheesecake with graham cracker crust. A Jewish deli classic that became an American icon.
+
+=== INGREDIENTS ===
+1. 2 cups graham cracker crumbs
+2. 1/4 cup sugar
+3. 6 tbsp butter, melted
+4. 1 kg cream cheese, softened
+5. 1 cup sugar
+6. 5 eggs
+7. 2 tsp vanilla extract
+8. 1/4 cup all-purpose flour
+9. 1 cup sour cream
+
+=== STEPS ===
+1. Mix graham crumbs, 1/4 cup sugar, and melted butter; press firmly into bottom and 2 cm up sides of 23 cm (9-inch) springform pan; refrigerate while making filling.
+2. Beat cream cheese until smooth; add 1 cup sugar gradually; beat until fluffy.
+3. Add eggs one at a time, beating well after each; mix in vanilla, flour, and sour cream until just combined.
+4. Pour into crust; bake at 160°C/325°F for 1 hour 15 minutes until set but slightly jiggly in center; turn off oven and leave door cracked for 1 hour.
+5. Refrigerate at least 4 hours or overnight before serving; run knife around edge before releasing springform.
+
+=== INDEX_TERMS ===
+Cheesecake; Cream Cheese; Dairy; Dessert; Baked; New York
+=== END ===

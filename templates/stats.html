@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-white rounded-3 shadow-sm p-3 mb-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0">Overview</h4>
+    <form method="post" class="d-flex gap-2 align-items-end">
+      <div>
+        <label class="form-label small mb-1">Filter by Word Group</label>
+        <select name="filter_group_id" class="form-select form-select-sm" style="min-width: 200px;">
+          <option value="">All words</option>
+          {% for g in word_groups %}
+            <option value="{{ g.group_id }}" {% if filter_group_id and filter_group_id|int==g.group_id %}selected{% endif %}>{{ g.group_name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label class="form-label small mb-1">Filter Digits</label>
+        <select name="filter_digits" class="form-select form-select-sm" style="min-width: 150px;">
+          <option value="all" {% if filter_digits == 'all' %}selected{% endif %}>All words</option>
+          <option value="digits_only" {% if filter_digits == 'digits_only' %}selected{% endif %}>Digits only</option>
+          <option value="exclude_digits" {% if filter_digits == 'exclude_digits' %}selected{% endif %}>Exclude digits</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary btn-sm"><i class="bi bi-funnel"></i> Apply</button>
+      </div>
+      {% if filter_digits != 'all' or filter_group_id %}
+      <div>
+        <a href="{{ url_for('stats') }}" class="btn btn-outline-secondary btn-sm"><i class="bi bi-x-circle"></i> Clear</a>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="card stat-card">
+        <div class="card-body">
+          <div class="stat-value">{{ n_recipes }}</div>
+          <div class="stat-label">Recipes</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card stat-card">
+        <div class="card-body">
+          <div class="stat-value">{{ n_segments }}</div>
+          <div class="stat-label">Segments</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card stat-card">
+        <div class="card-body">
+          <div class="stat-value">{{ n_tokens }}</div>
+          <div class="stat-label">Tokens</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white rounded-3 shadow-sm p-3">
+  <div class="row g-3">
+    <div class="col-lg-6">
+      <h6 class="mb-2">Recipes by Section</h6>
+      <canvas id="chartSections" height="180"></canvas>
+    </div>
+    <div class="col-lg-6">
+      <h6 class="mb-2">Recipes by Kashrut</h6>
+      <canvas id="chartKashrut" height="180"></canvas>
+    </div>
+    <div class="col-12 mt-3">
+      <h6 class="mb-2">
+        Top Words (in STEPs, stop-words excluded)
+        {% if filter_digits == 'digits_only' %}<span class="badge bg-info ms-2">Digits only</span>{% endif %}
+        {% if filter_digits == 'exclude_digits' %}<span class="badge bg-info ms-2">Exclude digits</span>{% endif %}
+        {% if filter_group_id %}
+          {% for g in word_groups %}
+            {% if filter_group_id|int==g.group_id %}<span class="badge bg-primary ms-2">Group: {{ g.group_name }}</span>{% endif %}
+          {% endfor %}
+        {% endif %}
+      </h6>
+      <canvas id="chartTopWords" height="200"></canvas>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Data from server (rendered into JS)
+  const sectionsData = {
+    labels: [{% for s in by_section %}'{{ (s.section or 'Unknown')|e }}'{% if not loop.last %},{% endif %}{% endfor %}],
+    values: [{% for s in by_section %}{{ s.c }}{% if not loop.last %},{% endif %}{% endfor %}]
+  };
+  const kashrutData = {
+    labels: [{% for k in by_kashrut %}'{{ (k.kashrut_type or 'Unknown')|e }}'{% if not loop.last %},{% endif %}{% endfor %}],
+    values: [{% for k in by_kashrut %}{{ k.c }}{% if not loop.last %},{% endif %}{% endfor %}]
+  };
+  const topWordsData = {
+    labels: [{% for w in top_words %}'{{ w.word|e }}'{% if not loop.last %},{% endif %}{% endfor %}],
+    values: [{% for w in top_words %}{{ w.c }}{% if not loop.last %},{% endif %}{% endfor %}]
+  };
+
+  // Draw charts
+  window.addEventListener('DOMContentLoaded', () => {
+    // Check if Chart.js is loaded
+    if (typeof Chart === 'undefined') {
+      console.error('Chart.js is not loaded');
+      return;
+    }
+
+    // Sections chart
+    const ctx1 = document.getElementById('chartSections');
+    if (ctx1 && sectionsData.labels.length > 0) {
+      new Chart(ctx1, {
+        type: 'bar',
+        data: { labels: sectionsData.labels, datasets: [{ label: 'Recipes', data: sectionsData.values }] },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+    }
+
+    // Kashrut chart
+    const ctx2 = document.getElementById('chartKashrut');
+    if (ctx2 && kashrutData.labels.length > 0) {
+      new Chart(ctx2, {
+        type: 'pie',
+        data: { labels: kashrutData.labels, datasets: [{ data: kashrutData.values }] },
+        options: { responsive: true }
+      });
+    }
+
+    // Top words chart
+    const ctx3 = document.getElementById('chartTopWords');
+    if (ctx3 && topWordsData.labels.length > 0) {
+      new Chart(ctx3, {
+        type: 'bar',
+        data: { labels: topWordsData.labels, datasets: [{ label: 'Frequency', data: topWordsData.values }] },
+        options: {
+          responsive: true,
+          indexAxis: 'y',
+          plugins: { legend: { display: false } },
+          scales: { y: { ticks: { autoSkip: false } } }
+        }
+      });
+    }
+  });
+</script>
+{% endblock %}

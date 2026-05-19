@@ -1,0 +1,39 @@
+=== RECIPE ===
+TITLE: CHEESE BLINTZES
+SECTION: MEHLSPEISE (FLOUR FOODS)
+ORDER_IN_SECTION: 810
+VARIANT_NO:
+KASHRUT_TYPE: DAIRY
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Cheese
+METHODS: FRIED
+YIELD_TEXT: 12 blintzes
+SERVINGS: 6
+
+=== HEADNOTE ===
+Thin crepes filled with sweetened cheese and pan-fried until golden. A traditional dairy dish often served on holidays.
+
+=== INGREDIENTS ===
+1. 3 eggs
+2. 1 cup milk
+3. 1 cup all-purpose flour
+4. 1/4 tsp salt
+5. 2 tbsp butter, melted (plus more for frying)
+6. 500 g farmer cheese or ricotta
+7. 1 egg yolk
+8. 3 tbsp sugar
+9. 1/2 tsp vanilla extract
+10. zest of 1 lemon
+11. sour cream, for serving
+12. fresh berries or jam, for serving
+
+=== STEPS ===
+1. Blend eggs, milk, flour, salt, and melted butter until smooth; let rest 30 minutes.
+2. Heat 18 cm (7 inch) non-stick pan over medium heat; brush lightly with butter; pour 3 tbsp batter, swirl to coat bottom; cook until edges lift and bottom is set, about 1 minute; flip onto clean towel, cooked side up; repeat with remaining batter.
+3. Mix farmer cheese, egg yolk, sugar, vanilla, and lemon zest until smooth.
+4. Place 2 tbsp filling on lower third of each crepe (cooked side up); fold bottom over filling, fold in sides, and roll up.
+5. Fry blintzes seam-side down in butter over medium heat until golden, about 2 minutes per side; serve warm with sour cream and berries.
+
+=== INDEX_TERMS ===
+Blintzes; Cheese; Dairy; Crepes; Mehlspeise
+=== END ===

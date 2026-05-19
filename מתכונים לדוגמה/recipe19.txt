@@ -1,0 +1,37 @@
+=== RECIPE ===
+TITLE: CHICKEN SCHNITZEL
+SECTION: POULTRY
+ORDER_IN_SECTION: 508
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Chicken
+METHODS: FRIED
+YIELD_TEXT: 4 servings
+SERVINGS: 4
+
+=== HEADNOTE ===
+Crispy breaded chicken cutlets, pounded thin for quick cooking. A weeknight favorite that children and adults adore.
+
+=== INGREDIENTS ===
+1. 4 boneless skinless chicken breasts
+2. 1 cup all-purpose flour
+3. 2 eggs, beaten
+4. 1 cup breadcrumbs or matzo meal
+5. 1 tsp paprika
+6. 1 tsp garlic powder
+7. 1 tsp salt
+8. 1/2 tsp black pepper
+9. vegetable oil for frying
+10. lemon wedges, for serving
+
+=== STEPS ===
+1. Place chicken between plastic wrap; pound to 1 cm (1/2 inch) thickness with meat mallet.
+2. Set up breading station: flour in one dish, beaten eggs in second, breadcrumbs mixed with paprika, garlic powder, salt, and pepper in third.
+3. Dredge each cutlet in flour, shaking off excess; dip in egg, then coat thoroughly with seasoned breadcrumbs.
+4. Heat 1 cm (1/2 inch) oil in large skillet over medium-high heat; fry cutlets 3–4 minutes per side until golden and cooked through (internal temperature 74°C/165°F).
+5. Drain on paper towels; serve immediately with lemon wedges.
+
+=== INDEX_TERMS ===
+Schnitzel; Chicken; Fried; Meat; Poultry; Breaded
+=== END ===

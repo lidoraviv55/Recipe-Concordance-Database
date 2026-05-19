@@ -1,0 +1,42 @@
+{% if contexts %}
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="mb-0">Contexts for: <code>{{ needle }}</code></h5>
+    <form method="post" class="d-flex align-items-center gap-2 js-update-window">
+      <input type="hidden" name="sel_word" value="{{ needle }}">
+      <label class="form-label m-0">Window (tokens ±)</label>
+      <input class="form-control form-control-sm" style="width:100px" type="number" name="ctx_window" value="{{ ctx_window or 5 }}" min="1" max="20">
+      <button class="btn btn-sm btn-primary">Update window</button>
+    </form>
+  </div>
+
+  <!-- Use #kwic-list for your highlighter -->
+  <div class="list-group" id="kwic-list" data-needle="{{ needle }}">
+    {% for c in contexts %}
+      <div class="list-group-item">
+        <div class="d-flex justify-content-between">
+          <div>
+            <a href="{{ url_for('recipe_detail', recipe_id=c.recipe_id) }}"><strong>{{ c.title }}</strong></a>
+            — {{ c.segment_type }} #{{ c.segment_index }}
+          </div>
+        </div>
+
+        {% if c.prev_text or c.next_text %}
+          <div class="mt-2 small">
+            {% if c.prev_text %}<div class="text-muted">... {{ c.prev_text }}</div>{% endif %}
+            <div><strong>{{ c.main_text }}</strong></div>
+            {% if c.next_text %}<div class="text-muted">{{ c.next_text }} ...</div>{% endif %}
+          </div>
+        {% else %}
+          <div class="mt-2"><strong>{{ c.main_text }}</strong></div>
+        {% endif %}
+
+        <div class="mt-2 small">
+          <span class="text-muted">KWIC:</span>
+          <span class="kwic-snippet">{{ c.snippet }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="alert alert-info mb-0">No contexts to show. Pick a word from the list and click "Show context".</div>
+{% endif %}

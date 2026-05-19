@@ -1,0 +1,55 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Flask instance folder
+instance/
+
+# Databases
+*.sqlite3
+*.db
+
+# Environment files
+.env
+*.env
+
+# Logs
+*.log
+
+# IDEs
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Type checkers / caches
+.mypy_cache/
+
+# Node modules (if present)
+node_modules/
+
+# Compiled extensions
+*.so
+
+# Secrets (optional)
+secrets.json

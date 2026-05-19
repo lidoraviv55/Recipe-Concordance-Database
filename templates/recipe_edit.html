@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white rounded-3 shadow-sm p-3">
+  <h4 class="mb-3">Edit Recipe</h4>
+  <form method="post" class="row g-3">
+
+    <div class="col-md-6">
+      <label class="form-label">Title</label>
+      <input class="form-control" name="title" value="{{ recipe.title }}">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Section</label>
+      <input class="form-control" name="section" value="{{ recipe.section }}">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Order in Section</label>
+      <input class="form-control" name="order_in_section" type="number" value="{{ recipe.order_in_section }}">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label">Variant No</label>
+      <input class="form-control" name="variant_no" type="number" value="{{ recipe.variant_no or '' }}">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Kashrut</label>
+      <select name="kashrut_type" class="form-select">
+        {% for k in ['MEAT','DAIRY','PARVE','UNKNOWN'] %}
+          <option value="{{ k }}" {% if recipe.kashrut_type==k %}selected{% endif %}>{{ k }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Holiday flags</label>
+      <input class="form-control" name="holiday_flags" value="{{ recipe.holiday_flags or '' }}">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Primary ingredient</label>
+      <input class="form-control" name="primary_ingredient" value="{{ recipe.primary_ingredient or '' }}">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label">Methods (comma-separated)</label>
+      <input class="form-control" name="methods" value="{{ recipe.methods or '' }}">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Yield</label>
+      <input class="form-control" name="yield_text" value="{{ recipe.yield_text or '' }}">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Servings</label>
+      <input class="form-control" name="servings" type="number" value="{{ recipe.servings or '' }}">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Index terms</label>
+      <input class="form-control" name="index_terms" value="{{ recipe.index_terms or '' }}">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">HEADNOTE</label>
+      <textarea class="form-control" name="headnote" rows="3">{{ headnote }}</textarea>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">INGREDIENTS (one per line)</label>
+      <textarea class="form-control" name="ingredients" rows="8">{{ ingredients }}</textarea>
+      <div class="form-text">Order matters; each line becomes an ingredient line segment with its own tokens.</div>
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">STEPS (one per line)</label>
+      <textarea class="form-control" name="steps" rows="8">{{ steps }}</textarea>
+      <div class="form-text">Order matters; each line becomes a STEP segment with its own tokens.</div>
+    </div>
+
+    <div class="col-12 d-flex gap-2">
+      <a class="btn btn-secondary" href="{{ url_for('recipe_detail', recipe_id=recipe.recipe_id) }}"><i class="bi bi-arrow-left"></i> Cancel</a>
+      <button class="btn btn-success"><i class="bi bi-save"></i> Save</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+=== RECIPE ===
+TITLE: HAMANTASCHEN
+SECTION: PASTRY AND PIES
+ORDER_IN_SECTION: 905
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS: PURIM
+PRIMARY_INGREDIENT: Flour
+METHODS: BAKED
+YIELD_TEXT: 24 cookies
+SERVINGS: 12
+
+=== HEADNOTE ===
+Triangular filled cookies shaped like Haman's hat, traditional for the Purim holiday. Poppy seed (mohn) filling is classic, but prune and apricot are equally beloved.
+
+=== INGREDIENTS ===
+1. 2/3 cup sugar
+2. 1/2 cup vegetable oil
+3. 2 eggs
+4. 1 tsp vanilla extract
+5. zest of 1 orange
+6. 3 cups all-purpose flour
+7. 2 tsp baking powder
+8. 1/4 tsp salt
+9. 2 tbsp orange juice
+10. 1 cup poppy seed filling (mohn), or prune/apricot jam
+
+=== STEPS ===
+1. Beat sugar and oil until combined; add eggs one at a time, then vanilla and orange zest.
+2. Whisk flour, baking powder, and salt; add to wet ingredients alternately with orange juice; mix until smooth dough forms; wrap and refrigerate 1 hour.
+3. Roll dough to 5 mm (1/4 inch) thickness on floured surface; cut 8 cm (3 inch) circles with cookie cutter or glass.
+4. Place 1 tsp filling in center of each circle; fold three sides toward center to form triangle, pinching corners tightly to seal.
+5. Place on parchment-lined baking sheets; bake at 180°C/350°F for 12–15 minutes until lightly golden at edges; cool completely.
+
+=== INDEX_TERMS ===
+Hamantaschen; Purim; Cookies; Pastry; Parve; Poppy Seed
+=== END ===

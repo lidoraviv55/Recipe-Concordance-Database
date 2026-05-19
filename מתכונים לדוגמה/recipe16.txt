@@ -1,0 +1,38 @@
+=== RECIPE ===
+TITLE: RUGELACH (CREAM CHEESE PASTRIES)
+SECTION: PASTRY AND PIES
+ORDER_IN_SECTION: 902
+VARIANT_NO:
+KASHRUT_TYPE: DAIRY
+HOLIDAY_FLAGS: HANUKKAH
+PRIMARY_INGREDIENT: Cream Cheese
+METHODS: BAKED
+YIELD_TEXT: 32 pieces
+SERVINGS: 16
+
+=== HEADNOTE ===
+Flaky cream cheese pastries rolled with cinnamon, nuts, and raisins. The dough must be well chilled for easy handling.
+
+=== INGREDIENTS ===
+1. 225 g cream cheese, softened
+2. 225 g (1 cup) butter, softened
+3. 2 cups all-purpose flour
+4. 1/4 tsp salt
+5. 1/2 cup apricot jam
+6. 1/2 cup brown sugar
+7. 1 tsp ground cinnamon
+8. 1 cup walnuts, finely chopped
+9. 1/2 cup raisins
+10. 1 egg, beaten (for glaze)
+11. coarse sugar, for sprinkling
+
+=== STEPS ===
+1. Beat cream cheese and butter until smooth; mix in flour and salt until dough forms; divide into 4 discs, wrap, and refrigerate at least 2 hours.
+2. Mix brown sugar, cinnamon, walnuts, and raisins in small bowl.
+3. Roll one disc into 25 cm (10 inch) circle on floured surface; spread thin layer of jam, then sprinkle with quarter of nut mixture.
+4. Cut into 8 wedges; roll each from wide end to point; curve into crescent shape; place on parchment-lined baking sheet; repeat with remaining dough.
+5. Brush with beaten egg; sprinkle with coarse sugar; bake at 180°C/350°F for 20–25 minutes until golden; cool on wire rack.
+
+=== INDEX_TERMS ===
+Rugelach; Pastry; Dairy; Cream Cheese; Cookies; Hanukkah
+=== END ===

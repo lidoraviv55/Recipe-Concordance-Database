@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+  <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('list_recipes') }}">
+    <i class="bi bi-arrow-left"></i> Back to Recipes
+  </a>
+
+  <a class="btn btn-outline-primary btn-sm" href="{{ url_for('recipe_edit', recipe_id=recipe.recipe_id) }}">
+    <i class="bi bi-pencil"></i> Edit
+  </a>
+
+  <form method="post"
+        action="{{ url_for('recipe_delete', recipe_id=recipe.recipe_id) }}"
+        onsubmit="return confirm('Delete this recipe? This cannot be undone.');"
+        class="m-0 p-0 d-inline">
+    <button class="btn btn-outline-danger btn-sm">
+      <i class="bi bi-trash"></i> Delete
+    </button>
+  </form>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-4">
+    <div class="card shadow-sm mb-3">
+      <div class="card-body">
+        <h4 class="card-title mb-2">{{ recipe.title }}</h4>
+
+        <div class="small text-muted mb-1">Section</div>
+        <div class="mb-2">
+          <span class="badge text-bg-secondary">{{ recipe.section }}</span>
+        </div>
+
+        <div class="row small">
+          <div class="col-6">
+            <div class="text-muted">Kashrut</div>
+            <div>{{ recipe.kashrut_type }}</div>
+          </div>
+          <div class="col-6">
+            <div class="text-muted">Servings</div>
+            <div>{{ recipe.servings or '—' }}</div>
+          </div>
+        </div>
+
+        <div class="row small mt-2">
+          <div class="col-6">
+            <div class="text-muted">Yield</div>
+            <div>{{ recipe.yield_text or '—' }}</div>
+          </div>
+          <div class="col-6">
+            <div class="text-muted">Primary</div>
+            <div>{{ recipe.primary_ingredient or '—' }}</div>
+          </div>
+        </div>
+
+        <div class="row small mt-2">
+          <div class="col-6">
+            <div class="text-muted">Order in Section</div>
+            <div>{{ recipe.order_in_section }}</div>
+          </div>
+          <div class="col-6">
+            <div class="text-muted">Variant</div>
+            <div>{{ recipe.variant_no or '—' }}</div>
+          </div>
+        </div>
+
+        <div class="mt-3 small">
+          <div class="text-muted mb-1">Methods</div>
+          {% if recipe.methods %}
+            {% for m in recipe.methods.split(',') %}
+              {% if m.strip() %}
+                <span class="badge rounded-pill text-bg-light border">{{ m.strip() }}</span>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <span>—</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% if recipe.index_terms %}
+    <div class="card shadow-sm">
+      <div class="card-header"><strong>Index Terms</strong></div>
+      <div class="card-body small">
+        {% set raw = recipe.index_terms.replace(',', ';') %}
+        {% set terms = raw.split(';') %}
+        {% for t in terms %}
+          {% set term = t.strip() %}
+          {% if term %}
+            <span class="tag-chip">{{ term }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="col-lg-8">
+    <div class="accordion shadow-sm" id="acc">
+      {% for seg in segments %}
+        {% set key = seg.type ~ '-' ~ seg.index %}
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="h-{{ key }}">
+            <button class="accordion-button {{ 'collapsed' if not loop.first }}" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#c-{{ key }}">
+              {{ seg.type }}{% if seg.type in ['INGREDIENT','STEP'] %} #{{ seg.index }}{% endif %}
+            </button>
+          </h2>
+          <div id="c-{{ key }}" class="accordion-collapse collapse {{ 'show' if loop.first else '' }}"
+               data-bs-parent="#acc">
+            <div class="accordion-body">
+              {{ seg.text }}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

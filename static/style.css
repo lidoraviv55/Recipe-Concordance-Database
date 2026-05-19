@@ -1,0 +1,356 @@
+/* ========= Recipe Concordance – Clean + Professional =========
+   Palette (used sparingly):
+   Green  #1DA462 | Red #DD5144 | Yellow #FFCD46 | Blue #4C8BF5
+
+   Goal: clean + calm.
+   - No gradients, no stripes, no random colors
+   - One primary accent (blue) + semantic colors only
+*/
+
+:root {
+  --blue:   #4C8BF5;
+  --green:  #1DA462;
+  --red:    #DD5144;
+  --yellow: #FFCD46;
+
+  --blue-700:   #2f6fe6;
+  --green-700:  #158353;
+  --red-700:    #c53f34;
+  --yellow-700: #e6b838;
+
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #fbfcff;
+  --border: rgba(15, 23, 42, 0.12);
+  --text: #0f172a;
+  --muted: #64748b;
+
+  --primary: var(--blue);
+  --success: var(--green);
+  --danger:  var(--red);
+  --warning: var(--yellow);
+
+  --radius-lg: 14px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+
+  --shadow-sm: 0 8px 18px rgba(15, 23, 42, 0.08);
+  --shadow:    0 14px 28px rgba(15, 23, 42, 0.10);
+
+  --ring: 0 0 0 3px rgba(76, 139, 245, 0.22);
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1400px) {
+  .container { max-width: 1180px; }
+}
+
+/* Links */
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--blue-700); text-decoration: underline; }
+
+code {
+  background: rgba(76,139,245,0.10);
+  border: 1px solid rgba(76,139,245,0.18);
+  padding: 0 .35rem;
+  border-radius: 6px;
+  color: #1d4ed8;
+}
+
+/* ========= Navbar ========= */
+.navbar {
+  background: rgba(15,23,42,0.96) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 10px 24px rgba(2,6,23,0.18);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: rgba(255,255,255,0.96) !important;
+}
+
+.navbar .nav-link {
+  border-radius: 999px;
+  padding: .48rem .76rem;
+  margin-left: .18rem;
+  color: rgba(255,255,255,0.86) !important;
+  transition: background .15s ease, transform .12s ease;
+}
+
+.navbar .nav-link:hover {
+  background: rgba(255,255,255,0.10) !important;
+  transform: translateY(-1px);
+}
+
+.navbar .nav-link.active {
+  background: rgba(76,139,245,0.22) !important;
+  box-shadow: 0 0 0 1px rgba(76,139,245,0.30) inset;
+  color: rgba(255,255,255,0.96) !important;
+}
+
+.navbar .nav-link.active::before { content: none !important; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.015em;
+  color: #0b1220;
+}
+
+/* ========= Cards / surfaces ========= */
+.card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  background: var(--surface-2);
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  font-weight: 700;
+}
+
+/* Bootstrap combo surfaces used in your templates */
+.bg-white.rounded-3.shadow-sm,
+section.bg-white.rounded-3.shadow-sm,
+div.bg-white.rounded-3.shadow-sm {
+  background: var(--surface) !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.bg-white.rounded-3.shadow-sm::before,
+section.bg-white.rounded-3.shadow-sm::before,
+div.bg-white.rounded-3.shadow-sm::before { content: none !important; }
+
+/* ========= Forms ========= */
+.form-label {
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid rgba(15,23,42,0.14) !important;
+  border-left: 1px solid rgba(15,23,42,0.14) !important;
+  background: #fff;
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  padding: .60rem .72rem;
+  box-shadow: none;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: rgba(76,139,245,0.75) !important;
+  box-shadow: var(--ring) !important;
+}
+
+/* ========= Buttons ========= */
+.btn {
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.60rem 1.00rem;
+  border: 1px solid transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+}
+.btn:focus { box-shadow: var(--ring); }
+
+.btn-primary {
+  background: var(--primary);
+  border-color: rgba(76,139,245,0.70);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(76,139,245,0.14);
+}
+.btn-primary:hover {
+  background: var(--blue-700);
+  border-color: rgba(76,139,245,0.85);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: var(--success);
+  border-color: rgba(29,164,98,0.70);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(29,164,98,0.12);
+}
+.btn-success:hover {
+  background: var(--green-700);
+  border-color: rgba(29,164,98,0.85);
+  transform: translateY(-1px);
+}
+
+.btn-outline-secondary {
+  border-color: rgba(100,116,139,0.45);
+  color: rgba(15,23,42,0.78);
+  background: transparent;
+}
+.btn-outline-secondary:hover {
+  background: rgba(15,23,42,0.04);
+  border-color: rgba(100,116,139,0.55);
+}
+
+.btn-outline-danger {
+  border-color: rgba(221,81,68,0.60);
+  color: var(--danger);
+  background: transparent;
+}
+.btn-outline-danger:hover {
+  background: rgba(221,81,68,0.08);
+  border-color: rgba(221,81,68,0.80);
+}
+
+/* ========= Tables ========= */
+.table {
+  color: var(--text);
+  --bs-table-striped-bg: rgba(15,23,42,0.03);
+  --bs-table-hover-bg: rgba(76,139,245,0.06);
+}
+
+.table thead th {
+  color: rgba(15,23,42,0.82);
+  font-weight: 800;
+  border-bottom: 1px solid rgba(15,23,42,0.10);
+}
+
+.table td, .table th {
+  border-color: rgba(15,23,42,0.08);
+}
+
+/* ========= Badges ========= */
+.badge.text-bg-secondary {
+  background: rgba(100,116,139,0.16) !important;
+  color: rgba(15,23,42,0.78) !important;
+  border: 1px solid rgba(100,116,139,0.22);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  padding: .32rem .55rem;
+}
+
+/* KWIC highlight */
+.kwic-snippet .kwic-hit {
+  background: #fff3c4;
+  border: 1px solid rgba(255, 205, 70, 0.65);
+  padding: 0 .30rem;
+  border-radius: 6px;
+  font-weight: 800;
+  color: #7c2d12;
+}
+
+/* Expression snippet styling - similar to KWIC */
+.expression-snippet {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--text);
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/* Expression highlight - bigger and more prominent */
+.expression-highlight {
+  background-color: #b3d9ff;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #1a4480;
+  border: 2px solid #4C8BF5;
+  box-shadow: 0 2px 4px rgba(76, 139, 245, 0.3);
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* Positional search word highlight */
+.pos-word-highlight {
+  background-color: #b3d9ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #1a4480;
+  border: 2px solid #4C8BF5;
+  display: inline-block;
+  margin-left: 8px;
+  box-shadow: 0 2px 6px rgba(76, 139, 245, 0.25);
+}
+
+/* Positional search line highlight - matches word highlight style */
+.pos-line-highlight {
+  background-color: #b3d9ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #1a4480;
+  border: 1px solid #4C8BF5;
+  display: inline-block;
+}
+
+/* Lists */
+.list-group {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(15,23,42,0.10);
+  box-shadow: var(--shadow-sm);
+}
+.list-group-item {
+  border-color: rgba(15,23,42,0.08);
+  background: #fff;
+}
+.list-group-item:hover {
+  background: rgba(76,139,245,0.03);
+}
+
+/* ===== Groups page – calmer accordions ===== */
+.accordion-item {
+  border: 1px solid rgba(15,23,42,0.10) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+.accordion-button {
+  padding: .70rem .90rem;
+  font-weight: 800;
+}
+.accordion-button:not(.collapsed) {
+  background: rgba(76,139,245,0.08);
+  color: rgba(15,23,42,0.92);
+  box-shadow: none;
+}
+.accordion-button:focus {
+  box-shadow: var(--ring) !important;
+}
+.accordion-body {
+  padding: .90rem;
+}
+.table.table-sm td, .table.table-sm th {
+  padding-top: .45rem;
+  padding-bottom: .45rem;
+}
+
+/* Footer */
+footer {
+  background: #fff;
+  border-top: 1px solid rgba(15,23,42,0.10) !important;
+  color: var(--muted);
+}
+
+pre.small {
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px dashed rgba(15,23,42,0.18);
+  padding: .85rem;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.98);
+}

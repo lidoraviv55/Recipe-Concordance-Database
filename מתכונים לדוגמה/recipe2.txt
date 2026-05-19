@@ -1,0 +1,33 @@
+=== RECIPE ===
+TITLE: CHOPPED HERRING
+SECTION: APPETIZERS
+ORDER_IN_SECTION: 145
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Herring
+METHODS: RAW
+YIELD_TEXT: About 2 cups
+SERVINGS: 8
+
+=== HEADNOTE ===
+Traditional chopped herring with apple and onion—savory, slightly sweet, and spreadable.
+
+=== INGREDIENTS ===
+1. 2 pickled herring fillets, soaked and rinsed
+2. 1 medium onion, finely chopped
+3. 1 tart apple, peeled and finely chopped
+4. 1 slice white bread, soaked in 2 tbsp vinegar and squeezed
+5. 1 tbsp neutral oil
+6. 1/4 tsp ground cinnamon (optional)
+7. black pepper, to taste
+8. 1 hard-boiled egg, chopped (for garnish)
+
+=== STEPS ===
+1. Bone the herring and chop finely.
+2. Add onion, apple, soaked bread, oil, cinnamon (if using), and pepper; mix to a coarse paste.
+3. Mound on a platter and garnish with chopped egg. Serve with rye bread or crackers.
+
+=== INDEX_TERMS ===
+Herring; Chopped Herring; Appetizers; Spreads
+=== END ===

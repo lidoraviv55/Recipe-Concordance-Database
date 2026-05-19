@@ -1,0 +1,35 @@
+=== RECIPE ===
+TITLE: KASHA VARNISHKES
+SECTION: GRAINS
+ORDER_IN_SECTION: 701
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Buckwheat
+METHODS: BOILED
+YIELD_TEXT: 6 servings
+SERVINGS: 6
+
+=== HEADNOTE ===
+Classic Eastern European comfort food combining toasted buckwheat groats with bow-tie pasta and caramelized onions.
+
+=== INGREDIENTS ===
+1. 1 cup kasha (roasted buckwheat groats)
+2. 1 egg, beaten
+3. 2 cups boiling water or chicken broth
+4. 2 cups bow-tie pasta (farfalle)
+5. 3 tbsp vegetable oil
+6. 2 large onions, diced
+7. 1 tsp salt
+8. 1/4 tsp black pepper
+
+=== STEPS ===
+1. Mix kasha with beaten egg in dry skillet; stir over medium heat until grains separate and are dry, about 3 minutes.
+2. Add boiling water and salt; cover and simmer 15 minutes until liquid is absorbed and kasha is tender.
+3. Meanwhile, cook pasta according to package directions; drain and set aside.
+4. Heat oil in large skillet; add onions and cook over medium-low heat 20 minutes until deeply golden and caramelized.
+5. Combine kasha, pasta, and onions; season with pepper and additional salt to taste; serve warm.
+
+=== INDEX_TERMS ===
+Kasha; Buckwheat; Pasta; Varnishkes; Grains; Parve
+=== END ===

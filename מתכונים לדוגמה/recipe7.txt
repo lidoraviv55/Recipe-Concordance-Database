@@ -1,0 +1,36 @@
+=== RECIPE ===
+TITLE: HUNGARIAN GOULASH
+SECTION: MEATS
+ORDER_IN_SECTION: 520
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Beef
+METHODS: STEWED
+YIELD_TEXT: About 2 liters
+SERVINGS: 6
+
+=== HEADNOTE ===
+Beef and onions richly seasoned with paprika; hearty and aromatic.
+
+=== INGREDIENTS ===
+1. 1 kg beef chuck, cut in 3 cm cubes
+2. 3 tbsp oil or schmaltz
+3. 3 large onions, sliced
+4. 2 tbsp sweet Hungarian paprika
+5. 2 cloves garlic, minced
+6. 2 tsp salt (to taste)
+7. 1 tsp caraway seeds (optional)
+8. 2 medium tomatoes, chopped (or 1/2 cup crushed)
+9. 2 cups water or stock
+10. black pepper, to taste
+
+=== STEPS ===
+1. Sauté onions in fat until deep golden.
+2. Add beef; brown lightly. Stir in paprika and garlic; cook 30 seconds.
+3. Add tomatoes, caraway (if using), salt, pepper, and water/stock.
+4. Cover and simmer gently 1.5–2 hours until beef is tender; adjust seasoning.
+
+=== INDEX_TERMS ===
+Goulash; Hungarian; Beef Stew; Meats; Paprika
+=== END ===

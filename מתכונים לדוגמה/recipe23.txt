@@ -1,0 +1,34 @@
+=== RECIPE ===
+TITLE: CHOPPED LIVER
+SECTION: APPETIZERS
+ORDER_IN_SECTION: 105
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS: SABBATH
+PRIMARY_INGREDIENT: Liver
+METHODS: SAUTEED
+YIELD_TEXT: 2 cups
+SERVINGS: 8
+
+=== HEADNOTE ===
+Rich and savory appetizer spread made from chicken livers, hard-boiled eggs, and schmaltz. A traditional Shabbat starter.
+
+=== INGREDIENTS ===
+1. 500 g chicken livers
+2. 3 tbsp chicken fat (schmaltz) or vegetable oil
+3. 2 large onions, diced
+4. 3 hard-boiled eggs
+5. 1 tsp salt
+6. 1/4 tsp black pepper
+7. matzo crackers, for serving
+
+=== STEPS ===
+1. Rinse livers and pat dry; remove any connective tissue or green spots.
+2. Heat schmaltz in large skillet; add onions and cook until deeply golden, about 15 minutes; remove and set aside.
+3. Add livers to same skillet; cook over medium-high heat until browned outside and just pink inside, about 5 minutes per side.
+4. Combine livers, onions, and eggs in food processor; pulse until coarsely chopped (not smooth); season with salt and pepper.
+5. Transfer to bowl; cover and refrigerate at least 2 hours; serve cold with matzo crackers.
+
+=== INDEX_TERMS ===
+Chopped Liver; Liver; Appetizer; Meat; Shabbat
+=== END ===

@@ -1,0 +1,32 @@
+=== RECIPE ===
+TITLE: PASSOVER SPONGE CAKE
+SECTION: PASSOVER DISHES
+ORDER_IN_SECTION: 720
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS: PASSOVER
+PRIMARY_INGREDIENT: Eggs
+METHODS: BAKED
+YIELD_TEXT: 1 tube cake
+SERVINGS: 12
+
+=== HEADNOTE ===
+Light potato-starch sponge cake suitable for Passover.
+
+=== INGREDIENTS ===
+1. 8 eggs, separated
+2. 1 cup sugar
+3. 1 cup potato starch
+4. 1 tsp lemon zest
+5. 1 tbsp lemon juice
+6. pinch salt
+
+=== STEPS ===
+1. Heat oven to 175°C/350°F. Line an ungreased tube pan bottom with parchment.
+2. Beat yolks with sugar until pale and thick; fold in potato starch, zest, and lemon juice.
+3. Whip whites with salt to soft peaks; fold into batter in thirds.
+4. Bake 35–40 minutes until springy. Invert to cool completely before unmolding.
+
+=== INDEX_TERMS ===
+Passover; Sponge Cake; Cakes; Parve; Potato Starch
+=== END ===

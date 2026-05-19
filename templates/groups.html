@@ -1,0 +1,340 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="d-flex align-items-start justify-content-between mb-3">
+  <div>
+    <h1 class="h3 mb-1">Groups</h1>
+    <div class="text-muted">Create groups, add items, and search results—without clutter.</div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <!-- LEFT: Actions (accordion) -->
+  <div class="col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <strong>Actions</strong>
+        <span class="small text-muted">One at a time</span>
+      </div>
+
+      <div class="card-body">
+        <div class="accordion" id="groupsActions">
+
+          <!-- Create -->
+          <div class="accordion-item mb-2">
+            <h2 class="accordion-header" id="act-create-h">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#act-create" aria-expanded="true" aria-controls="act-create">
+                Create group
+              </button>
+            </h2>
+            <div id="act-create" class="accordion-collapse collapse show" aria-labelledby="act-create-h" data-bs-parent="#groupsActions">
+              <div class="accordion-body">
+                <form method="post" class="row g-2">
+                  <input type="hidden" name="action" value="create_group">
+
+                  <div class="col-12">
+                    <label class="form-label">Group name</label>
+                    <input class="form-control" name="group_name" placeholder="e.g., Dairy" required>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Description (optional)</label>
+                    <input class="form-control" name="group_desc" placeholder="Short explanation">
+                  </div>
+
+                  <div class="col-12 d-grid mt-1">
+                    <button class="btn btn-success">Create group</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add -->
+          <div class="accordion-item mb-2">
+            <h2 class="accordion-header" id="act-add-h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#act-add" aria-expanded="false" aria-controls="act-add">
+                Add item to group
+              </button>
+            </h2>
+            <div id="act-add" class="accordion-collapse collapse" aria-labelledby="act-add-h" data-bs-parent="#groupsActions">
+              <div class="accordion-body">
+                <form method="post" class="row g-2">
+                  <input type="hidden" name="action" value="add_item">
+
+                  <div class="col-md-6">
+                    <label class="form-label">Group</label>
+                    <select name="group_id" class="form-select" required>
+                      {% for g in groups_list %}
+                        <option value="{{ g.group_id }}">{{ g.group_name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Scope</label>
+                    <select name="scope" class="form-select">
+                      <option value="STEP">STEP</option>
+                      <option value="INGREDIENT">INGREDIENT</option>
+                      <option value="TITLE">TITLE</option>
+                      <option value="GLOBAL">GLOBAL (all types)</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Word</label>
+                    <input name="word" class="form-control" placeholder="e.g., butter" required>
+                  </div>
+
+                  <!-- Recipe selection removed: items are always global -->
+
+                  <div class="col-12 d-grid mt-1">
+                    <button class="btn btn-primary">Add</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="act-search-h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#act-search" aria-expanded="false" aria-controls="act-search">
+                Search by group
+              </button>
+            </h2>
+            <div id="act-search" class="accordion-collapse collapse" aria-labelledby="act-search-h" data-bs-parent="#groupsActions">
+              <div class="accordion-body">
+                <form method="post" class="row g-2">
+                  <input type="hidden" name="action" value="search_group">
+
+                  <div class="col-md-6">
+                    <label class="form-label">Group</label>
+                    <select name="sel_group_id" class="form-select" required>
+                      {% for g in groups_list %}
+                        <option value="{{ g.group_id }}">{{ g.group_name }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Recipe (optional)</label>
+                    <select name="sel_recipe_id" class="form-select">
+                      <option value="">All recipes</option>
+                      {% for r in recipes %}
+                        <option value="{{ r.recipe_id }}">{{ r.title }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Scope</label>
+                    <select name="sel_scope" class="form-select">
+                      <option value="">Any</option>
+                      <option value="TITLE">TITLE</option>
+                      <option value="INGREDIENT">INGREDIENT</option>
+                      <option value="STEP">STEP</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">&nbsp;</label>
+                    <button class="btn btn-primary w-100">Search</button>
+                  </div>
+                </form>
+
+                {% if group_hits %}
+                  <div class="mt-3">
+                    <div class="fw-bold mb-2">Recipes containing words from this group ({{ group_hits|length }})</div>
+                    <ul class="list-group">
+                      {% for h in group_hits %}
+                        <li class="list-group-item">
+                          <a href="{{ url_for('recipe_detail', recipe_id=h.recipe_id) }}">{{ h.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /accordion -->
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: groups list -->
+  <div class="col-lg-7">
+    <div class="card shadow-sm">
+      <div class="card-header d-flex align-items-center justify-content-between">
+        <strong>All groups</strong>
+        <span class="small text-muted">Open one group at a time</span>
+      </div>
+      <div class="card-body">
+
+        <div class="accordion" id="groupsAccordion">
+          {% for g in groups_list %}
+            {% set items = group_items[g.group_id] %}
+            <div class="accordion-item mb-2">
+              <h2 class="accordion-header" id="heading-{{ g.group_id }}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse-{{ g.group_id }}" aria-expanded="false" aria-controls="collapse-{{ g.group_id }}">
+                  <div class="d-flex w-100 align-items-center justify-content-between">
+                    <div class="fw-bold">{{ g.group_name }}</div>
+                    <span class="badge text-bg-secondary">{{ items|length if items else 0 }}</span>
+                  </div>
+                </button>
+              </h2>
+
+              <div id="collapse-{{ g.group_id }}" class="accordion-collapse collapse"
+                   aria-labelledby="heading-{{ g.group_id }}" data-bs-parent="#groupsAccordion">
+                <div class="accordion-body">
+
+                  {% if g.description %}
+                    <div class="text-muted mb-2">{{ g.description }}</div>
+                  {% endif %}
+
+                  <div class="d-flex justify-content-end gap-2 mb-2">
+                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editGroupModal-{{ g.group_id }}">Edit</button>
+                    <form method="post" onsubmit="return confirm('Delete this group?');">
+                      <input type="hidden" name="action" value="delete_group">
+                      <input type="hidden" name="del_group_id" value="{{ g.group_id }}">
+                      <button class="btn btn-sm btn-outline-danger">Delete</button>
+                    </form>
+                  </div>
+
+                  {% if items and items|length %}
+                    <div class="table-responsive">
+                      <table class="table table-sm align-middle mb-0">
+                        <thead class="table-light">
+                          <tr>
+                            <th>Word</th>
+                            <th>Scope</th>
+                            <th>Recipes</th>
+                            <th class="text-end">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for it in items %}
+                            <tr>
+                              <td class="fw-semibold">{{ it.word }}</td>
+                              <td><span class="badge text-bg-secondary">{{ it.scope }}</span></td>
+                              <td>
+                                {% if it.recipe_count > 0 %}
+                                  <button class="btn btn-sm btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#recipes-{{ it.item_id }}" aria-expanded="false">
+                                    {{ it.recipe_count }} recipe{{ 's' if it.recipe_count != 1 else '' }}
+                                  </button>
+                                  <div class="collapse mt-2" id="recipes-{{ it.item_id }}">
+                                    <ul class="list-group list-group-flush small">
+                                      {% for rec in it.recipes %}
+                                        <li class="list-group-item py-1 px-2">
+                                          <a href="{{ url_for('recipe_detail', recipe_id=rec.recipe_id) }}">{{ rec.title }}</a>
+                                        </li>
+                                      {% endfor %}
+                                    </ul>
+                                  </div>
+                                {% else %}
+                                  <span class="text-muted small">0 recipes</span>
+                                {% endif %}
+                              </td>
+                              <td class="text-end">
+                                <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editItemModal-{{ it.item_id }}">Edit</button>
+                                <form method="post" class="d-inline" onsubmit="return confirm('Delete this item?');">
+                                  <input type="hidden" name="action" value="delete_item">
+                                  <input type="hidden" name="del_item_id" value="{{ it.item_id }}">
+                                  <input type="hidden" name="del_item_group_id" value="{{ g.group_id }}">
+                                  <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  {% else %}
+                    <div class="text-muted">No items yet.</div>
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS -->
+{% for g in groups_list %}
+<div class="modal fade" id="editGroupModal-{{ g.group_id }}" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <form method="post" class="modal-content bg-white shadow">
+      <input type="hidden" name="action" value="update_group">
+      <input type="hidden" name="edit_group_id" value="{{ g.group_id }}">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Group</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body row g-2">
+        <div class="col-12">
+          <label class="form-label">Group name</label>
+          <input class="form-control" name="edit_group_name" value="{{ g.group_name }}" required>
+        </div>
+        <div class="col-12">
+          <label class="form-label">Description</label>
+          <input class="form-control" name="edit_group_desc" value="{{ g.description }}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
+
+{% for g in groups_list %}
+  {% for it in group_items[g.group_id] %}
+<div class="modal fade" id="editItemModal-{{ it.item_id }}" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <form method="post" class="modal-content bg-white shadow">
+      <input type="hidden" name="action" value="update_item">
+      <input type="hidden" name="edit_item_id" value="{{ it.item_id }}">
+      <input type="hidden" name="edit_item_group_id" value="{{ g.group_id }}">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Item</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body row g-2">
+        <div class="col-12">
+          <label class="form-label">Word</label>
+          <input class="form-control" name="edit_item_word" value="{{ it.word }}" required>
+        </div>
+        <div class="col-6">
+          <label class="form-label">Scope</label>
+          <select class="form-select" name="edit_item_scope">
+            <option value="TITLE" {% if it.scope=='TITLE' %}selected{% endif %}>TITLE</option>
+            <option value="INGREDIENT" {% if it.scope=='INGREDIENT' %}selected{% endif %}>INGREDIENT</option>
+            <option value="STEP" {% if it.scope=='STEP' %}selected{% endif %}>STEP</option>
+            <option value="GLOBAL" {% if it.scope=='GLOBAL' %}selected{% endif %}>GLOBAL (all types)</option>
+          </select>
+        </div>
+        <!-- Recipe selection removed in edit modal -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+  {% endfor %}
+{% endfor %}
+
+{% endblock %}

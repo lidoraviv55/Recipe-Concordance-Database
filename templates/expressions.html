@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row g-3">
+  <div class="col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-header"><strong>Create Expression (multi-word)</strong></div>
+      <div class="card-body">
+        <form method="post" class="row g-2">
+          <input type="hidden" name="action" value="create_expression">
+          <div class="col-12">
+            <input class="form-control" name="expr_name" placeholder="Expression name (unique)">
+          </div>
+          <div class="col-12">
+            <input class="form-control" name="expr_phrase" placeholder="Phrase words, e.g. sweet and sour">
+          </div>
+          <div class="col-12">
+            <label class="form-label small text-muted">Allowed gap (slop) between words</label>
+            <input class="form-control" type="number" name="max_gap" min="0" max="5" value="0">
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-success"><i class="bi bi-plus-circle"></i> Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <div class="card shadow-sm mb-3">
+      <div class="card-header"><strong>Search Expression</strong></div>
+      <div class="card-body">
+        <form method="post" class="row g-2">
+          <input type="hidden" name="action" value="search_expression">
+          <div class="col-md-9">
+            <select name="expr_search_name" class="form-select" required>
+              {% if expressions %}
+                {% for e in expressions %}
+                  <option value="{{ e.name }}|{{ e.max_gap }}" {% if selected_expr == (e.name ~ '|' ~ e.max_gap) %}selected{% endif %}>{{ e.name }} (gap={{ e.max_gap }})</option>
+                {% endfor %}
+              {% else %}
+                <option value="">No expressions available - create one first</option>
+              {% endif %}
+            </select>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100"><i class="bi bi-search"></i> Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {% if results %}
+      <div class="card shadow-sm">
+        <div class="card-header"><strong>Results ({{ results|length }} found)</strong></div>
+        <div class="card-body">
+          <ul class="list-group" id="expression-results" data-words="{{ expression_words|join(',') }}">
+            {% for r in results %}
+              <li class="list-group-item">
+                <a href="{{ url_for('recipe_detail', recipe_id=r.recipe_id) }}" class="fw-semibold text-decoration-none me-2">{{ r.recipe_title }}</a>
+                <span class="badge rounded-pill text-bg-light border me-2">{{ r.segment_type }} #{{ r.segment_index }}</span>
+                <span class="expression-snippet" data-text="{{ r.segment_text|e }}">{{ r.segment_text }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <script>
+        // Highlight expression words in results
+        document.addEventListener('DOMContentLoaded', () => {
+          const container = document.getElementById('expression-results');
+          if (!container) return;
+          
+          const wordsStr = container.getAttribute('data-words');
+          if (!wordsStr) return;
+          
+          const words = wordsStr.split(',').filter(w => w.trim());
+          if (words.length === 0) return;
+          
+          // Create regex pattern to match all expression words
+          const escapeRx = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const pattern = words.map(w => escapeRx(w.trim())).join('|');
+          const rx = new RegExp(`\\b(${pattern})\\b`, 'gi');
+          
+          container.querySelectorAll('.expression-snippet').forEach(el => {
+            const text = el.textContent;
+            el.innerHTML = text.replace(rx, '<span class="expression-highlight">$1</span>');
+          });
+        });
+      </script>
+    {% elif request.method == "POST" and action == "search_expression" %}
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <p class="text-muted mb-0">No results found.</p>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

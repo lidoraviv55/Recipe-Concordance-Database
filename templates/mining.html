@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white rounded-3 shadow-sm p-3">
+  <h4 class="mb-2">Mining – Frequent Co-occurring Word Pairs</h4>
+  <p class="text-muted">Find pairs of words that appear close to each other (within a token window) in the same segment. This demonstrates position-based data mining (support and confidence).</p>
+
+  <form method="post" class="row g-2 mb-3">
+    <div class="col-md-3">
+      <label class="form-label mb-1">Scope (segment type)</label>
+      <select name="scope" class="form-select">
+        <option value="STEP" {% if scope=='STEP' %}selected{% endif %}>STEP</option>
+        <option value="INGREDIENT" {% if scope=='INGREDIENT' %}selected{% endif %}>INGREDIENT</option>
+        <option value="TITLE" {% if scope=='TITLE' %}selected{% endif %}>TITLE</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label mb-1">Recipe (optional)</label>
+      <select name="recipe_id" class="form-select">
+        <option value="">All recipes</option>
+        {% for r in recipes %}
+          <option value="{{ r.recipe_id }}" {% if rid and rid|int==r.recipe_id %}selected{% endif %}>{{ r.title }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label mb-1">Section (optional)</label>
+      <select name="section" class="form-select">
+        <option value="">All sections</option>
+        {% for s in sections %}
+          <option value="{{ s }}" {% if section==s %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-2">
+      <label class="form-label mb-1">Window (tokens)</label>
+      <input class="form-control" type="number" name="window" value="{{ window or 5 }}" min="1" max="20">
+    </div>
+    <div class="col-md-2">
+      <label class="form-label mb-1">Min support</label>
+      <input class="form-control" type="number" name="min_support" value="{{ min_support or 2 }}" min="1" max="1000">
+    </div>
+    <div class="col-md-3 d-flex align-items-end">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="exclude_stop" id="exStop" {% if exclude_stop %}checked{% endif %}>
+        <label class="form-check-label" for="exStop">Exclude stop-words</label>
+      </div>
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+      <button class="btn btn-primary w-100"><i class="bi bi-search"></i> Mine</button>
+    </div>
+  </form>
+
+  {% if pairs %}
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Word 1</th>
+            <th>Word 2</th>
+            <th>Support (count)</th>
+            <th>Confidence W1→W2</th>
+            <th>Confidence W2→W1</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in pairs %}
+          <tr>
+            <td>{{ p.w1 }}</td>
+            <td>{{ p.w2 }}</td>
+            <td><span class="badge text-bg-secondary">{{ p.support }}</span></td>
+            <td>{{ p.conf_w1_to_w2 }}</td>
+            <td>{{ p.conf_w2_to_w1 }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="text-muted">No pairs found for the current filters.</p>
+  {% endif %}
+</div>
+{% endblock %}

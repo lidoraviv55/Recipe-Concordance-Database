@@ -1,0 +1,39 @@
+=== RECIPE ===
+TITLE: BRAISED BEEF BRISKET
+SECTION: MEATS
+ORDER_IN_SECTION: 412
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS: SABBATH
+PRIMARY_INGREDIENT: Beef
+METHODS: STEWED
+YIELD_TEXT: 10–12 servings
+SERVINGS: 12
+
+=== HEADNOTE ===
+Slow-braised brisket with onions and root vegetables. Best made a day ahead; the flavors deepen and the meat slices beautifully when cold.
+
+=== INGREDIENTS ===
+1. 2 kg (4–5 lb) beef brisket, first cut
+2. 2 tsp salt
+3. 1 tsp black pepper
+4. 2 tbsp vegetable oil
+5. 4 large onions, sliced
+6. 6 cloves garlic, minced
+7. 3 carrots, cut into chunks
+8. 2 cups beef broth
+9. 1 cup dry red wine
+10. 2 tbsp tomato paste
+11. 2 bay leaves
+12. 4 sprigs fresh thyme
+
+=== STEPS ===
+1. Season brisket generously with salt and pepper; heat oil in large Dutch oven over high heat; sear meat on both sides until well browned, about 5 minutes per side; remove and set aside.
+2. Reduce heat to medium; add onions and cook 15 minutes until soft and golden; add garlic and cook 1 minute more.
+3. Return brisket to pot, fat side up; add carrots, broth, wine, tomato paste, bay leaves, and thyme; bring to simmer.
+4. Cover tightly and braise in 160°C/325°F oven for 3–4 hours, until fork-tender; let cool in liquid; refrigerate overnight.
+5. Remove solidified fat from surface; slice meat against the grain; reheat gently in the braising liquid; adjust seasoning and serve with vegetables and sauce.
+
+=== INDEX_TERMS ===
+Brisket; Beef; Braised; Meat; Holiday; Shabbat
+=== END ===

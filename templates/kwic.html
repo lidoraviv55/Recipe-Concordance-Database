@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white rounded-3 shadow-sm p-3">
+  <h4 class="mb-2">KWIC (Key Word In Context)</h4>
+  <p class="text-muted mb-3">
+    KWIC shows a word with its context taken from token positions in the recipe steps.
+    <strong>Window</strong> = how many <em>tokens</em> to show on each side (±).
+  </p>
+
+  <form method="post" class="row g-2 mb-3">
+    <div class="col-md-5">
+      <label class="form-label mb-1">Recipe (optional - leave empty to search all)</label>
+      <select name="recipe_id" class="form-select">
+        <option value="">All recipes</option>
+        {% for r in recipes %}
+          <option value="{{ r.recipe_id }}" {% if rid and rid|int==r.recipe_id %}selected{% endif %}>{{ r.title }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label mb-1">Word (lowercase)</label>
+      <input class="form-control" name="word" placeholder="e.g. olive" value="{{ word or '' }}" required>
+    </div>
+
+    <div class="col-md-2">
+      <label class="form-label mb-1">Window (tokens ±)</label>
+      <input class="form-control" type="number" name="window" value="{{ window or 5 }}" min="1" max="20">
+      <div class="form-text small">5 = show 5 tokens before and 5 after the hit</div>
+    </div>
+
+    <div class="col-md-1">
+      <label class="form-label mb-1">&nbsp;</label>
+      <button type="submit" class="btn btn-primary w-100"><i class="bi bi-search"></i></button>
+    </div>
+  </form>
+
+  {% if hits %}
+    <div class="mb-2 text-muted small">Found {{ hits|length }} result{{ 's' if hits|length != 1 else '' }}</div>
+    <ul class="list-group" id="kwic-list" data-needle="{{ word }}">
+      {% for h in hits %}
+        <li class="list-group-item">
+          {% if not rid %}
+            <a href="{{ url_for('recipe_detail', recipe_id=h.recipe_id) }}" class="fw-semibold text-decoration-none me-2">{{ h.recipe_title }}</a>
+          {% endif %}
+          <span class="badge rounded-pill text-bg-light border me-2">Step {{ h.segment_index }}</span>
+          <span class="kwic-snippet">{{ h.snippet|safe }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% elif word %}
+    <p class="text-muted mb-0">No hits.</p>
+  {% endif %}
+</div>
+
+<script>
+// Highlight the searched word in KWIC snippets
+document.addEventListener('DOMContentLoaded', () => {
+  const list = document.getElementById('kwic-list');
+  if (!list) return;
+  const needle = list.getAttribute('data-needle');
+  if (!needle) return;
+
+  const escapeRx = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rx = new RegExp(`\\b(${escapeRx(needle)})\\b`, 'gi');
+
+  list.querySelectorAll('.kwic-snippet').forEach(el => {
+    const text = el.textContent;
+    el.innerHTML = text.replace(rx, '<span style="background-color: #b3d9ff; padding: 2px 4px; border-radius: 3px; font-weight: 500;">$1</span>');
+  });
+});
+</script>
+{% endblock %}

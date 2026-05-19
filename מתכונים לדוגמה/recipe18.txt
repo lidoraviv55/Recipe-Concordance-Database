@@ -1,0 +1,38 @@
+=== RECIPE ===
+TITLE: CARROT TZIMMES
+SECTION: VEGETABLES
+ORDER_IN_SECTION: 610
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Carrots
+METHODS: STEWED
+YIELD_TEXT: 8 servings
+SERVINGS: 8
+
+=== HEADNOTE ===
+Sweet braised carrots with honey and dried fruit. The Yiddish word "tzimmes" means a fuss or big deal—this dish is worth the effort.
+
+=== INGREDIENTS ===
+1. 1 kg carrots, peeled and sliced into coins
+2. 1 cup pitted prunes
+3. 1/2 cup dried apricots
+4. 1/3 cup honey
+5. 2 tbsp brown sugar
+6. 1/4 cup orange juice
+7. 2 tbsp margarine or butter
+8. 1/2 tsp ground cinnamon
+9. 1/4 tsp ground ginger
+10. 1/2 tsp salt
+11. 1 cup water
+
+=== STEPS ===
+1. Place carrots, prunes, and apricots in large pot or Dutch oven.
+2. Combine honey, brown sugar, orange juice, margarine, cinnamon, ginger, salt, and water in saucepan; heat until margarine melts and sugar dissolves.
+3. Pour honey mixture over carrots and fruit; bring to simmer over medium heat.
+4. Cover and transfer to 160°C/325°F oven; bake 1½–2 hours, stirring occasionally, until carrots are very tender and liquid is syrupy.
+5. Uncover for final 20 minutes to glaze; adjust sweetness with more honey if desired; serve warm or at room temperature.
+
+=== INDEX_TERMS ===
+Tzimmes; Carrots; Sweet; Vegetables; Parve
+=== END ===

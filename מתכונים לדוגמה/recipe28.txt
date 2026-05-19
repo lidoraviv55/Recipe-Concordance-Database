@@ -1,0 +1,33 @@
+=== RECIPE ===
+TITLE: CHAROSET
+SECTION: APPETIZERS
+ORDER_IN_SECTION: 110
+VARIANT_NO:
+KASHRUT_TYPE: PARVE
+HOLIDAY_FLAGS: PASSOVER
+PRIMARY_INGREDIENT: Apples
+METHODS: RAW
+YIELD_TEXT: 2 cups
+SERVINGS: 12
+
+=== HEADNOTE ===
+Sweet apple and nut mixture symbolizing the mortar used by Jewish slaves in Egypt. Essential for the Passover Seder plate.
+
+=== INGREDIENTS ===
+1. 3 medium apples, peeled and cored
+2. 1 cup walnuts
+3. 1/2 cup sweet red wine
+4. 2 tbsp honey
+5. 1 tsp ground cinnamon
+6. 1/4 tsp ground ginger
+
+=== STEPS ===
+1. Chop apples finely by hand or pulse briefly in food processor; do not puree.
+2. Chop walnuts coarsely.
+3. Combine apples, walnuts, wine, honey, cinnamon, and ginger in bowl; mix well.
+4. Cover and refrigerate at least 1 hour for flavors to meld.
+5. Stir before serving; adjust sweetness with additional honey if desired; serve with matzo.
+
+=== INDEX_TERMS ===
+Charoset; Passover; Seder; Apples; Walnuts; Parve
+=== END ===

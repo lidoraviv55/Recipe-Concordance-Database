@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="bg-white rounded-3 shadow-sm p-3">
+  <h4 class="mb-3">Import Preview</h4>
+
+  {% if not ok %}
+    <div class="alert alert-warning">
+      <strong>Parsing error:</strong> {{ error }}
+    </div>
+    <a href="{{ url_for('import_recipe') }}" class="btn btn-secondary">Back</a>
+  {% else %}
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-header"><strong>Metadata</strong></div>
+          <div class="card-body small">
+            <div><span class="text-muted">Title:</span> {{ meta.title }}</div>
+            <div><span class="text-muted">Section:</span> {{ meta.section }}</div>
+            <div><span class="text-muted">Order:</span> {{ meta.order_in_section }}</div>
+            <div><span class="text-muted">Variant:</span> {{ meta.variant_no or '—' }}</div>
+            <div><span class="text-muted">Kashrut:</span> {{ meta.kashrut_type }}</div>
+            <div><span class="text-muted">Holiday:</span> {{ meta.holiday_flags or '—' }}</div>
+            <div><span class="text-muted">Primary:</span> {{ meta.primary_ingredient or '—' }}</div>
+            <div><span class="text-muted">Methods:</span> {{ meta.methods or '—' }}</div>
+            <div><span class="text-muted">Yield:</span> {{ meta.yield_text or '—' }}</div>
+            <div><span class="text-muted">Servings:</span> {{ meta.servings or '—' }}</div>
+            <div><span class="text-muted">Index terms:</span> {{ meta.index_terms or '—' }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <div class="accordion shadow-sm" id="acc">
+          {% for seg in meta.segments %}
+          {% set key = seg.type ~ '-' ~ seg.index %}
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="h-{{ key }}">
+              <button class="accordion-button {{ 'collapsed' if not loop.first }}" type="button" data-bs-toggle="collapse" data-bs-target="#c-{{ key }}">
+                {{ seg.type }}{% if seg.type in ['INGREDIENT','STEP'] %} #{{ seg.index }}{% endif %}
+              </button>
+            </h2>
+            <div id="c-{{ key }}" class="accordion-collapse collapse {{ 'show' if loop.first else '' }}" data-bs-parent="#acc">
+              <div class="accordion-body">{{ seg.text }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <form method="post" action="{{ url_for('import_commit') }}" class="mt-3">
+          <input type="hidden" name="preview_payload" value="{{ preview_payload|tojson|safe if 0 else preview_payload }}">
+          <a href="{{ url_for('import_recipe') }}" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back</a>
+          <button class="btn btn-success"><i class="bi bi-check2-circle"></i> Commit Import</button>
+        </form>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

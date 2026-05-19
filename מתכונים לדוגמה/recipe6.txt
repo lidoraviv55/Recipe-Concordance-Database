@@ -1,0 +1,35 @@
+=== RECIPE ===
+TITLE: CHICKEN FRICASSEE
+SECTION: POULTRY
+ORDER_IN_SECTION: 410
+VARIANT_NO:
+KASHRUT_TYPE: MEAT
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Chicken
+METHODS: STEWED
+YIELD_TEXT: 1 medium chicken
+SERVINGS: 6
+
+=== HEADNOTE ===
+Tender chicken pieces gently stewed with onions and light gravy.
+
+=== INGREDIENTS ===
+1. 1 whole chicken (about 1.5 kg), cut into serving pieces
+2. 2 tbsp schmaltz (or neutral oil)
+3. 2 medium onions, sliced
+4. 2 tbsp flour
+5. 3 cups water or stock
+6. 1 bay leaf
+7. 1 tsp salt, or to taste
+8. black pepper, to taste
+9. 1 tbsp chopped parsley (for serving)
+
+=== STEPS ===
+1. Heat schmaltz in a wide pot; brown onions lightly. Add chicken and sauté until just colored.
+2. Sprinkle flour; stir 1 minute. Add water/stock and bay leaf; bring to a simmer.
+3. Cover and stew gently 35–45 minutes until chicken is tender. Season with salt and pepper.
+4. Sprinkle with parsley and serve.
+
+=== INDEX_TERMS ===
+Chicken Fricassee; Poultry; Stewed; Main Dishes
+=== END ===

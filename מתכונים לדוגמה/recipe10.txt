@@ -1,0 +1,36 @@
+=== RECIPE ===
+TITLE: NOODLE KUGEL (DAIRY)
+SECTION: MEHLSPEISE (FLOUR FOODS)
+ORDER_IN_SECTION: 805
+VARIANT_NO:
+KASHRUT_TYPE: DAIRY
+HOLIDAY_FLAGS:
+PRIMARY_INGREDIENT: Noodles
+METHODS: BAKED
+YIELD_TEXT: 9×13 inch pan
+SERVINGS: 12
+
+=== HEADNOTE ===
+Creamy baked noodle pudding with cheese and a lightly sweet finish.
+
+=== INGREDIENTS ===
+1. 250 g wide egg noodles
+2. 4 tbsp butter, melted (plus for greasing)
+3. 500 g cottage cheese
+4. 1 cup sour cream
+5. 3 eggs
+6. 1/2 cup sugar
+7. 1 tsp vanilla extract
+8. 1/2 tsp salt
+9. 1/2 cup raisins (optional)
+10. ground cinnamon, for top (optional)
+
+=== STEPS ===
+1. Heat oven to 180°C/355°F. Grease a 9×13 inch (23×33 cm) pan.
+2. Boil noodles in salted water until barely tender; drain and toss with butter.
+3. Whisk cottage cheese, sour cream, eggs, sugar, vanilla, and salt. Fold in noodles (and raisins, if using).
+4. Spread in pan; dust with cinnamon if desired. Bake 35–45 minutes until set and golden at edges. Rest 10 minutes before serving.
+
+=== INDEX_TERMS ===
+Noodle Kugel; Kugel; Dairy; Mehlspeise; Baked
+=== END ===
